@@ -1,24 +1,24 @@
 <p>heroes details!</p>
 
 <ul>
-    <li  *ngFor="let hero of heroes" (click)="selectHero(hero)">
+    
+<li  *ngFor="let hero of heroes" (click)="selectHero(hero)">
         <div class="color">
             <span>
                 <p>{{hero.id}} Name :  {{hero.name}}</p>
             </span>
-
         </div>
     </li>
 </ul>
-<div>
+
 <div *ngIf="selectedHero!== undefined">
     <h2>Selected Hero</h2>
-    <h3>{{selectHero.name}}</h3>
+    <h3>{{selectedHero.name}}</h3>
     
 
 
     <label for="heroName">Hero name</label>
     <input type="text" placeholder="Heroes name" name="" id="" [(ngModel)]="selectedHero.name">
 </div>
-</div>
+
 

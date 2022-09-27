@@ -1,0 +1,72 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- User name Definition -->
+  <ng-container matColumnDef="id">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Número</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+  <ng-container matColumnDef="nome">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+
+  <!-- Age Definition -->
+  <ng-container matColumnDef="idade">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Idade</th>
+    <td mat-cell *matCellDef="let element">{{ element.idade }}</td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+
+  <!-- Title Definition -->
+  <ng-container matColumnDef="nota1">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Nota 1</th>
+    <td mat-cell *matCellDef="let element">{{ element.nota1 }}</td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+  <ng-container matColumnDef="nota2">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Nota 2</th>
+    <td mat-cell *matCellDef="let element">{{ element.nota2 }}</td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+  <ng-container matColumnDef="nota3">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Nota 3</th>
+    <td mat-cell *matCellDef="let element">{{ element.nota3 }}</td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+  <ng-container matColumnDef="nota4">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Nota 4</th>
+    <td mat-cell *matCellDef="let element">{{ element.nota4 }}</td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+  <ng-container matColumnDef="media">
+    <!--matColumnDef PROPERTY IS "position" HERE. -->
+    <th mat-header-cell *matHeaderCellDef>Média</th>
+    <td mat-cell *matCellDef="let e">
+      {{ ((e.nota1 + e.nota2 + e.nota3 + e.nota4) / 4).toFixed(2) }}
+    </td>
+    <!--AND "position" IS ALSO USED HERE.-->
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    (click)="showStatusPopUp(row)"
+  ></tr>
+</table>
+<div *ngIf="showModalPopUp">
+  <h1>Aluno</h1>
+  <h2>Media</h2>
+  <div *ngIf="clickedStudent !== undefined">
+    <p>{{ clickedStudent.nome }}</p>
+  </div>
+</div>
