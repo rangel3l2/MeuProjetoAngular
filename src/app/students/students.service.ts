@@ -1,4 +1,6 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { Aluno } from '../aluno';
 @Injectable({
   providedIn: 'root'
@@ -30,5 +32,24 @@ export class StudentsService {
   getStudents() : Aluno[] {
     return this.alunos;
   }
+  calMedia(): Aluno[] {
   
+    this.alunos.map((item)=>{
+        item.media = (item.nota1+item.nota2+item.nota3+item.nota4)/4
+      
+    })
+    return this.alunos
+
+  }
+  calStatus(): Aluno[]{
+    this.alunos.map((item)=>{
+      const status = ((item.nota1 + item.nota2 + item.nota3  + item.nota4)/4)>6?true:false
+      item.status = status
+
+    })
+    
+    return this.alunos
+
+  }
+
 }

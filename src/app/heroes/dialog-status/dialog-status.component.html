@@ -1,0 +1,15 @@
+<div class="container">
+
+<div mat-dialog-content >
+    <h1 mat-dialog-title> Heroi selecionado</h1>
+  <ul *ngIf="data.selectedHero!== undefined">
+    <li> Numero: 
+      <span >{{data.selectedHero.id}}</span> 
+    </li>
+    <li> Nome:
+      <span >{{data.selectedHero.name}}</span> 
+    </li>
+    
+  </ul>
+</div>
+</div>
